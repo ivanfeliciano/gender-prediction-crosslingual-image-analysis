@@ -1,0 +1,243 @@
+\documentclass[runningheads]{llncs}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[english,main=spanish]{babel}
+% If possible, figure files should be included in EPS format.
+%
+% If you use the hyperref package, please uncomment the following line
+% to display URLs in blue roman font according to Springer's eBook style:
+% \renewcommand\UrlFont{\color{blue}\rmfamily}
+
+
+\begin{document}
+%
+\title{Uso de información extraída de imágenes compartidas en Twitter para predicción de género en escenarios multilingüe}
+
+%\titlerunning{Abbreviated paper title}
+% If the paper title is too long for the running head, you can set
+% an abbreviated paper title here
+
+\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
+Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
+Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+%
+\authorrunning{F. Author et al.}
+% First names are abbreviated in the running head.
+% If there are more than two authors, 'et al.' is used.
+%
+\institute{Princeton University, Princeton NJ 08544, USA \and
+Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
+\email{lncs@springer.com}\\
+\url{http://www.springer.com/gp/computer-science/lncs} \and
+ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
+\email{\{abc,lncs\}@uni-heidelberg.de}}
+
+\maketitle
+
+\begin{abstract}
+The abstract should briefly summarize the contents of the paper in
+150--250 words.
+
+\keywords{First keyword  \and Second keyword \and Another keyword.}
+\end{abstract}
+
+\section{Introducción}
+
+La tarea de perfilado de autores (AP por sus siglas en inglés), a través
+del análisis de contenido compartido, busca determinar características demográficas 
+específicas como género, edad, personalidad, legua nativa u orientación 
+política\cite{rangel_rosso_montes-y-gomez_potthast_stein}. La identificación de tales 
+aspectos puede aplicarse en una gran variedad de campos. Por ejemplo, la detección del 
+género es útil en márketing y publicidad, donde las empresas pueden estar interesadas
+en si le gustará o no un producto a un grupo demográfico\cite{miller_dickinson_hu_2012}.
+También, dentro de la criminalística, es de interés detectar cuando alguien falsifica su género en internet\cite{cheng_chandramouli_subbalakshmi_2011}. 
+
+El contenido compartido en redes sociales incluye información 
+en distintas modalidades como texto, imágenes, audio y video.
+Toda estos datos pueden ser utilizarse para extraer información
+valiosa de los usuarios. 
+
+Existen varias conferencias cuya meta 
+es promover la investigación en áreas de recuperación
+de información. Entre ellas están la Text REtrieval Conference (TREC) y la 
+iniciativa CLEF (Conference and Labs of the Evaluation Forum, anteriormente 
+conocida como Cross-Language Evaluation Forum). Dentro de esta última, se 
+encuentra el PAN, una serie de eventos científicos y tareas sobre textos 
+forenses y estilometría de textos digitales\cite{pan}. El objetivo de la tarea
+de perfilado de autores del PAN 2018 fue abordar la identificación de género
+desde una perspectiva multimodal donde además de texto se
+incluyeron imágenes\cite{rangel_rosso_montes-y-gomez_potthast_stein}.
+Para cumplir el propósito de la tarea, se brindó un conjunto de datos
+obtenido de Twitter, el cual comprende tres idiomas: árabe, inglés y español.
+La tarea permitía la clasificación para un subconjunto de idiomas; usando sólo texto, imágenes o haciendo una fusión de las dos fuentes de información.
+
+A partir de los resultados obtenidos usando sólo imágenes 
+\cite{rangel_rosso_montes-y-gomez_potthast_stein}, se pudo observar que es posible 
+utilizar información de éstas para el perfilado de usuarios.
+En este trabajo comprobamos que las imágenes de una colección para un
+idioma  pueden ser útiles para identificar el perfil en otro idioma. 
+El que las imágenes compartidas por los usuarios sean
+independientes del idioma abre la posibilidad de utilizar
+un modelo construido con una colección de imágenes de un 
+idioma diferente a la colección de prueba de manera rápida
+
+
+Aunque el número de datos de los usuarios en inglés y español en la colección es la misma.
+We also demonstrated that the hidden layers in theSHL-MDNN can be effectively transferred  for  use  by  and  benefit  for  otherlanguages, even  if  large volumes of  training  data  are  available  for  the  target language or the target language is phonetically far from the source languages used to train the SHL-MDNN.The  implication  of  this  work  is  significantand  far  reaching. It suggests  the  possibility  toquickly  build  a  high-performance  CD-DNN-HMM   system for   a   new   language from   an   existing multilingual DNN. This huge benefitwould requirea small amount of training  data  from  the  target  language,  although  having  more data   would   further   improve   the   performance,   can   completely eliminate  the  unsupervised  pre-training  stage,  and  can  train  the DNN  with   much fewer epochs. Our   workalso   indicates the possibilityto  build  a  universal  ASR  system  efficiently  under  the CD-DNN-HMM framework. Such a system can not only recognizemany  languagesandimprovethe  accuracy foreach  individual language,  but  also  expand  the  languages  supported  by  simply stacking softmax layers for new languages. 
+
+
+
+
+
+
+
+
+\begin{itemize}
+    \item Describir la tarea de perfilado de autores.
+    \item Predicción de género, ¿por qué? Marketing, otra motivación
+    sería mejor.
+    \item Uso de texto e imágenes para perfilado. Mencionar que 
+    utilizaré imágenes.
+    \item Hablar sobre los foros de evaluación, PAN 2018. Describir la
+    tarea.
+    \item Hablar de los resultados obtenidos por Takahashi y Ezra. El
+    trabajo del último sirve como base para mi proyecto.
+    \item Describir el problema de la clasificación de género 
+    usando imágenes de usuarios en otro idioma, ¿cómo la atacaré?,
+    ¿el idioma importa?, ¿es un problema el tamaño de los conjuntos de 
+    datos en un idioma?
+    \item Contribuciones.
+\end{itemize}
+\section{Trabajo relacionado}
+\begin{itemize}
+    \item Takahashi, Ezra.
+    \item Buscar qué se ha hecho en escenarios multilingüe.
+    \item Cross lingual pretraining.
+    \item GENDER PREDICTION BASED ON SEMANTIC ANALYSIS OF SOCIAL MEDIA 
+    IMAGES.
+\end{itemize}
+\section{Solución propuesta}
+\begin{itemize}
+    \item Extracción de características semánticas de una imagen usando
+    la CNN VGG16. Promedios de las imágenes de cada autor.
+    \item Clasificador, SVM. Entrada de entrenamiento (subcojuntos de idiomas) y salida (F o M). Entrada de prueba (ES, EN, AR).
+\end{itemize}
+\section{Experimentos}
+\begin{itemize}
+    \item Tablas de los conjuntos de datos.
+    \item Medidas de evaluación.
+    \item Enfoques de comparación. Entrenamiento y pruebas monolingües y
+    crosslingües.
+    \item Implementación. ¿Es necesario describir sobre qué implementé 
+    todo? Tal vez incluir el enlace del repositorio.
+\end{itemize}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+              & Árabe & Español & Inglés & Total \\ \hline
+Entrenamiento & 1500  & 3000    & 3000   & 7500  \\ \hline
+Prueba        & 1000  & 2200    & 1900   & 5100  \\ \hline
+Total         & 2500  & 4900    & 5200   & 12600 \\ \hline
+\end{tabular}
+\end{table}
+\section{Resultados}
+
+\begin{itemize}
+    \item Análisis de resultados.
+    \item Tablas de las combinaciones que se probaron.
+    \item Selección de características.
+    \item Histogramas de ``frecuencias''.
+    \item Correlación entre los vectores de los hombres y mujeres
+    entre los idiomas.
+\end{itemize}
+
+\begin{table}[]
+\centering
+\begin{tabular}{|l|l|l|}
+\hline
+Idioma entrenamiento & Idioma de prueba & Exactitud    \\ \hline
+Árabe                & Inglés           & 0.6289473684 \\ \cline{2-3} 
+                     & Español          & 0.625        \\ \cline{2-3} 
+                     & Árabe            & 0.676        \\ \hline
+Español              & Inglés           & 0.6747368421 \\ \cline{2-3} 
+                     & Español          & 0.6740909091 \\ \cline{2-3} 
+                     & Árabe            & 0.696        \\ \hline
+Inglés               & Inglés           & 0.6989473684 \\ \cline{2-3} 
+                     & Español          & 0.6668181818 \\ \cline{2-3} 
+                     & Árabe            & 0.69         \\ \hline
+Árabe Español        & Inglés           & 0.6763157895 \\ \cline{2-3} 
+                     & Español          & 0.6659090909 \\ \cline{2-3} 
+                     & Árabe            & 0.707        \\ \hline
+Árabe Inglés         & Inglés           & 0.6847368421 \\ \cline{2-3} 
+                     & Español          & 0.6586363636 \\ \cline{2-3} 
+                     & Árabe            & 0.694        \\ \hline
+Español Inglés       & Inglés           & 0.6978947368 \\ \cline{2-3} 
+                     & Español          & 0.675        \\ \cline{2-3} 
+                     & Árabe            & 0.703        \\ \hline
+Árabe Español Inglés & Inglés           & 0.7          \\ \cline{2-3} 
+                     & Español          & 0.6759090909 \\ \cline{2-3} 
+                     & Árabe            & 0.707        \\ \hline
+\end{tabular}
+\end{table}
+
+\subsection{Tablas de correlación entre géneros e idiomas}
+\begin{table}[]
+
+\centering
+\caption{Hombres vs. Hombres}
+\label{male-vs-male-correlation}
+\begin{tabular}{|l|l|l|l|}
+\hline
+        & Árabe        & Español      & Inglés       \\ \hline
+Árabe   & 1            & 0.9821367303 & 0.9821702278 \\ \hline
+Español & 0.9821367303 & 1            & 0.9946005346 \\ \hline
+Inglés  & 0.9821702278 & 0.9946005346 & 1            \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[]
+\centering
+\caption{Mujeres vs. Mujeres}
+\label{female-vs-female-correlation}
+\begin{tabular}{|l|l|l|l|}
+\hline
+        & Árabe        & Español      & Inglés       \\ \hline
+Árabe   & 1            & 0.9711885725 & 0.9765954799 \\ \hline
+Español & 0.9711885725 & 1            & 0.995615316  \\ \hline
+Inglés  & 0.9765954799 & 0.995615316  & 1            \\ \hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[]
+\centering
+\caption{Hombres (fila) vs Mujeres (columnas)}
+\label{male-female-correlation}
+\begin{tabular}{|l|l|l|l|}
+\hline
+        & Árabe        & Español      & Inglés       \\ \hline
+Árabe   & 0.9798501212 & 0.9711885725 & 0.974166434  \\ \hline
+Español & 0.9615626915 & 0.9894368692 & 0.9864575353 \\ \hline
+Inglés  & 0.9633847896 & 0.9851604739 & 0.9877626583 \\ \hline
+\end{tabular}
+\end{table}
+
+\section{Conclusiones y trabajo futuro}
+
+\begin{itemize}
+    \item ¿El idioma importa? 
+    \item ¿Comparten lo mismo los usuarios del género $X$ en el idioma
+    $Y$ y los usuarios del género $X$ en el idioma $\hat{Y}$.
+    \item ¿Es suficiente el vocabulario con el que cuenta imagenet
+    (1000 objetos y escenarios)?
+    \item Extender el trabajo usando el enfoque no supervisado.
+    \item Vocabulario abierto.
+    \item Agrupamiento dentro de cada género.
+\end{itemize}
+
+\bibliographystyle{splncs04}
+\bibliography{references}
+
+\end{document}
