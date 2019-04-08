@@ -49,7 +49,7 @@ The abstract should briefly summarize the contents of the paper in
 
 El contenido compartido en redes sociales incluye información 
 en distintas modalidades como texto, imágenes, audio y video.
-Toda estos datos pueden utilizarse para extraer información
+Todos estos datos pueden utilizarse para extraer información
 valiosa de los usuarios. 
 La tarea de perfilado de autores (AP por sus siglas en inglés), a través
 del análisis de contenido compartido, busca determinar características demográficas 
@@ -140,7 +140,7 @@ imágenes \cite{rangel_rosso_montes-y-gomez_potthast_stein}.
 Los mejores resultados para la clasificación usando imágenes los obtuvieron los
 autores en \cite{takahashi_tahara_nagatan_miura_taniguchi_ohkuma}, quienes utilizaron 
 un modelo pre-entrenado de red neuronal convolucional (CNN por sus siglas en inglés) 
-basado en ImageNet. En algunos de los autores en los primeros puestos como \cite{aragon2018straightforward}, 
+basado en ImageNet. Algunos de los autores en los primeros puestos como \cite{aragon2018straightforward}, 
 \cite{takahashi_tahara_nagatan_miura_taniguchi_ohkuma} y \cite{sierra_gonzales} utilizaron como modelo, para la extraccón de características, la red VGG16 \cite{zisserman_simonyan_2015}, donde \cite{sierra_gonzales} adicionalmente usó ResNet50 \cite{7780459} para comparar resultados, obteniendo mejores resultados con la última.
 
 Nuestra propuesta sigue el mismo esquema que el de \cite{aragon2018straightforward}.
@@ -210,7 +210,7 @@ cada subconjunto de las colecciones de imágenes de usuarios en los tres diferen
 idiomas. Esto es, dado un conjunto $\mathbb{X} = \{\text{Árabe}, \text{Español}, \text{Inglés}\}$, donde cada elemento de $\mathbb{X}$ es una colección de 
 representaciones de las imágenes de 
 usuarios del respectivo idioma, el i-ésimo clasificador se entrenó con una colección 
-$X_i \subseteq \mathbb{X}$ y $X_i \neq \varnothing$. Para este trabajo
+$X_i \subseteq \mathbb{X}$ y $X_i \neq \varnothing$. Para este trabajo,
 el algoritmo de aprendizaje utilizado fue una máquina de vectores de soporte (SVM por 
 sus siglas en inglés) con un kernel lineal. Después del entrenamiento 
 de cada uno de los posibles clasificadores, éstos se evalúan con una colección $Y \in \mathbb{X}$. En la Figura \ref{fig:classifier} se muestra el esquema utilizado
@@ -238,7 +238,7 @@ y de hombres, la medida de evaluación para comparar los distintos clasificadore
 es la exactitud, es decir, la proporción de muestras clasificadas correctamente.
 
 
-Para la implementación empleamos las biblioteca de Python para aprendizaje 
+Para la implementación empleamos las bibliotecas de Python para aprendizaje 
 profundo y aprendizaje automático Keras y scikit-learn, respectivamente. La primera
 para extraer las representaciones de las imágenes de los usuarios con los modelos
 pre-entrenados (VGG16 y ResNet50) y la segunda para construir y evaluar las SVM
@@ -260,11 +260,8 @@ Total         & 2500  & 4900    & 5200   & 12600 \\ \hline
 
 \section{Resultados}
 
-
-\subsection{Comparación de los enfoques monolingüe y crosslingüe}
-
-
 \begin{table}
+\caption{Comparación de los enfoques monolingüe y crosslingüe}
 \centering
 \begin{tabular}{|l|l|l|l|} 
 \hline
@@ -315,38 +312,55 @@ Español Inglés       & Inglés           & 0.6978947368    & 0.6989473684     
 \end{tabular}
 \end{table}
 
+\subsection{Tablas de correlación entre géneros e idiomas ResNet50}
 
-\subsection{Gráficas de las sumas de vectores de los hombres y mujers VGG16}
-
-\begin{figure}
-\subfloat{\includegraphics[width = 3in]{img/vgg16/AR_f.png}} 
-\subfloat{\includegraphics[width = 3in]{img/vgg16/AR_m.png}}\\
-\subfloat{\includegraphics[width = 3in]{img/vgg16/ES_f.png}}
-\subfloat{\includegraphics[width = 3in]{img/vgg16/ES_m.png}}\\ 
-\subfloat{\includegraphics[width = 3in]{img/vgg16/EN_f.png}}
-\subfloat{\includegraphics[width = 3in]{img/vgg16/EN_m.png}}
-\caption{Caption}
-\label{img-vgg16-freqs}
-\end{figure}
-
-\subsection{Gráficas de las sumas de vectores de los hombres y mujers Resnet50}
-
-\begin{figure}
-\subfloat{\includegraphics[width = 3in]{img/resnet/AR_f.png}} 
-\subfloat{\includegraphics[width = 3in]{img/resnet/AR_m.png}}\\
-\subfloat{\includegraphics[width = 3in]{img/resnet/ES_f.png}}
-\subfloat{\includegraphics[width = 3in]{img/resnet/ES_m.png}}\\ 
-\subfloat{\includegraphics[width = 3in]{img/resnet/EN_f.png}}
-\subfloat{\includegraphics[width = 3in]{img/resnet/EN_m.png}}
-\caption{Caption}
-\label{img-resnet-freqs}
-\end{figure}
+\begin{table}[!h]
+\centering
+\caption{Hombres vs. Hombres}
+\label{male-vs-male-correlation-resnet}
+\begin{tabular}{|l|l|l|l|}
+\hline
+      & Árabe & Español & Inglés \\ \hline
+Árabe & 1 & 0.9865381524 & 0.9871715119 \\ \hline
+Español & 0.9865381524 & 1 & 0.9944975735 \\ \hline
+Inglés & 0.9871715119 & 0.9944975735 &	1 \\ \hline
+\end{tabular}
+\end{table}
 
 
+\begin{table}[!h]
+\centering
+\caption{Mujeres vs. Mujeres}
+\label{female-vs-female-correlation-resnet}
+\begin{tabular}{|l|l|l|l|}
+\hline
+& Árabe & Español & Inglés \\ \hline
+Árabe & 1 & 0.9783240035 & 0.9804591406 \\ \hline
+Español & 0.9783240035 & 1 & 0.9961258946 \\ \hline
+Inglés & 0.9804591406 & 0.9961258946 & 1 \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[!h]
+
+\centering
+\caption{Hombres (filas) vs. Mujeres (columnas)}
+\label{female-vs-male-correlation-resnet}
+\begin{tabular}{|l|l|l|l|}
+\hline
+ & Árabe & Español & Inglés \\ \hline
+Árabe & 0.9853544489 & 0.9820994439 & 0.9832355933 \\ \hline
+Español & 0.967564731 & 0.9926698818 & 0.9888342816 \\ \hline
+Inglés & 0.9700934691 & 0.9890692539 & 0.9909517324 \\ \hline
+
+\end{tabular}
+\end{table}
 
 
 \subsection{Tablas de correlación entre géneros e idiomas VGG16}
-\begin{table}[]
+\begin{table}[!h]
 
 \centering
 \caption{Hombres vs. Hombres}
@@ -360,7 +374,7 @@ Inglés  & 0.9821702278 & 0.9946005346 & 1            \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[]
+\begin{table}[!h]
 \centering
 \caption{Mujeres vs. Mujeres}
 \label{female-vs-female-correlation}
@@ -373,8 +387,7 @@ Inglés  & 0.9765954799 & 0.995615316  & 1            \\ \hline
 \end{tabular}
 \end{table}
 
-
-\begin{table}[]
+\begin{table}[!h]
 \centering
 \caption{Hombres (fila) vs Mujeres (columnas)}
 \label{male-female-correlation}
@@ -386,6 +399,35 @@ Español & 0.9615626915 & 0.9894368692 & 0.9864575353 \\ \hline
 Inglés  & 0.9633847896 & 0.9851604739 & 0.9877626583 \\ \hline
 \end{tabular}
 \end{table}
+
+
+\newpage
+
+\begin{figure}[!h]
+\subfloat{\includegraphics[scale=0.2]{img/vgg16/AR_f.png}} 
+\subfloat{\includegraphics[scale=0.2]{img/vgg16/AR_m.png}}\\
+\subfloat{\includegraphics[scale=0.2]{img/vgg16/ES_f.png}}
+\subfloat{\includegraphics[scale=0.2]{img/vgg16/ES_m.png}}\\ 
+\subfloat{\includegraphics[scale=0.2]{img/vgg16/EN_f.png}}
+\subfloat{\includegraphics[scale=0.2]{img/vgg16/EN_m.png}}
+\caption{Gráficas de las sumas de vectores de los hombres y mujeres para las características obtenidas con el modelo VGG16. 50 atributos con valores más altos.}
+\label{img-vgg16-freqs}
+\end{figure}
+
+
+\begin{figure}[!h]
+\subfloat{\includegraphics[scale=0.2]{img/resnet/AR_f.png}} 
+\subfloat{\includegraphics[scale=0.2]{img/resnet/AR_m.png}}\\
+\subfloat{\includegraphics[scale=0.2]{img/resnet/ES_f.png}}
+\subfloat{\includegraphics[scale=0.2]{img/resnet/ES_m.png}}\\ 
+\subfloat{\includegraphics[scale=0.2]{img/resnet/EN_f.png}}
+\subfloat{\includegraphics[scale=0.2]{img/resnet/EN_m.png}}
+\caption{Gráficas de las sumas de vectores de los hombres y mujeres para las características obtenidas con el modelo ResNet50. 50 atributos con valores más altos.}
+\label{img-resnet-freqs}
+\end{figure}
+
+
+
 
 
 % \begin{itemize}
