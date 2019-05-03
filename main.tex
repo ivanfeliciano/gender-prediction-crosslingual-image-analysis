@@ -310,7 +310,7 @@ Total    & 2500 & 4900    & 5200    & 12600 \\ \bottomrule
 % exactamente, pero lo que sí veo que hace falta es explicar el objetivo
 % atrás de cada análisis. Por ejemplo, yo veo ue podríamos tener dos
 % claros objetivos: i) mostrar en cada Language qué ayuda a diferenciar
-% entre hombres y mujeres, ii) tratar de mostrar las SEMEJANZAS y
+% entre Males y Females, ii) tratar de mostrar las SEMEJANZAS y
 % diferencias por Language. habrá que enfatizar más las semejanzas pues esas
 % son el corazón de nuestra idea, sin semejanzas lo crosslingue no
 % serviría. Pero claro, viendo que el mejor resultado lo tenemos cuando
@@ -421,7 +421,7 @@ classifiers.
 % exactamente, pero lo que sí veo que hace falta es explicar el objetivo
 % atrás de cada análisis. Por ejemplo, yo veo ue podríamos tener dos
 % claros objetivos: i) mostrar en cada Language qué ayuda a diferenciar
-% entre hombres y mujeres, ii) tratar de mostrar las SEMEJANZAS y
+% entre Males y Females, ii) tratar de mostrar las SEMEJANZAS y
 % diferencias por Language. habrá que enfatizar más las semejanzas pues esas
 % son el corazón de nuestra idea, sin semejanzas lo crosslingue no
 % serviría. Pero claro, viendo que el mejor resultado lo tenemos cuando
@@ -435,12 +435,13 @@ The main objectives of this analysis are: i) show in each language the attribute
 and differences among the content shared in the distinct languages.
 
 First, we get a sum vector for each gender in every language.
-The sum vectors are just the sum of feature vectors for 
-every user, grouped by gender. In a very rough way
+%The sum vectors are just the sum of feature vectors for 
+%every user, grouped by gender. 
+In a very rough way
 this vector is  analogous to a vector of frequencies.
 Attributes with higher values indicate more common labels.
-Figure \ref{img-vgg16-freqs} shows word clouds with the 
-with the 50 attributes with the highest sum values for every gender and language.
+Figure \ref{img-vgg16-freqs} shows word clouds with
+the 50 attributes with the highest sum values for every gender and language.
 
 
 % Como la SVM no ofrece una explicación sobre la clasificación,
@@ -458,44 +459,71 @@ with the 50 attributes with the highest sum values for every gender and language
 \subfloat[Gender: Masculino. Language: Spanish.]{\includegraphics[scale=0.2]{img/ES_M_wordcloud.png}}\\ 
 \subfloat[Gender: Female. Language: English.]{\includegraphics[scale=0.2]{img/EN_F_wordcloud.png}}\qquad
 \subfloat[Gender: Masculino. Language: English.]{\includegraphics[scale=0.2]{img/EN_M_wordcloud.png}}
-\caption{Nubes de palabras de las sumas de vectores de los hombres y mujeres para las características obtenidas con el modelo VGG16. Se muestran los 50 atributos con valores de la suma más altos.}
+\caption{Word clouds for the 50 highest value features of the sum vectors.}
 \label{img-vgg16-freqs}
 \end{figure}
 
 
 Figure \ref{img-vgg16-freqs} indicates that some attributes
 are common between each demographic group. For instance
-some of these features are: \texttt{web site}, \texttt{book jacket}, \texttt{envelope}, \texttt{comic book} y \texttt{menu}.
+some of these features are: \texttt{web site}, \texttt{book jacket}, \texttt{envelope}, \texttt{comic book} y \texttt{menu}. Contrary to the similarities there are 
+some features that are not present in the opposite 
+gender in each language. For example, for the english
+language, words like 
+\texttt{ballplayer} and \texttt{basketball} 
+are in the men's cloud and \texttt{miniskirt} and
+\texttt{pajama} are in the women's set. 
+The intersection of the generated sets
+for men of all the languages are the next terms:
+\texttt{rugby ball}, \texttt{ballplayer}, \texttt{basketball}, and \texttt{soccer ball}.
+On the other hand the intersection of women image labels
+are: \texttt{stole}, \texttt{gown}, \texttt{miniskirt}, \texttt{fur coat}, \texttt{brassiere} and \texttt{pajama}.
 
-Además, se obtuvo el coeficiente correlación y el índice de Jaccard de los
-vectores suma entre todos los pares de Languages y Genders.
-Estos vectores suma sólo contienen los valores para los 100 atributos
-con valores más altos. 
-Los Cuadros \ref{table:men-vs-men}, \ref{table:women-vs-women}, \ref{table:women-vs-men} muestran los resultados.
-En relación a los valores de los coeficientes de correlación, se 
-puede ver que los mismos Genders en diferentes Languages tienen
-valores muy altos. Sin embargo, también Genders diferentes en distintos
-Languages tienen una fuerte correlación. Con base en lo anterior, se puede
-deducir que existen sólo algunos atributos sobre los que
-recae la representación del Gender de los autores.
+Futhermore, we use every possible pair of the sum vectors
+to compute correlation coeffient and Jaccard index between 
+them. We extend the number of 50 attributes to 100 for
+each sum vector. Tables \ref{table:men-vs-men}, \ref{table:women-vs-women}, \ref{table:women-vs-men} show
+the results.
+with respect to correlation we can see that same genders of 
+different languages had very high values. However, 
+a similar result is obtained between men and women.
 
-Con respecto al índice de Jaccard para medir la similitud entre los conjuntos
-de tamaño 100 de atributos entre los diferentes Languages y Genders se puede 
-ver que los pares de conjuntos más similares son entre hombres de los
-Languages: inglés - arabe e inglés - español y entre mujeres de español - inglés. Por el contrario,
-los conjuntos menos similares son entre hombres y mujeres de los Languages:
-español - árabe, inglés - árabe y español - inglés.
+
+%Los Cuadros \ref{table:men-vs-men}, \ref{table:women-vs-women}, \ref{table:women-vs-men} muestran los resultados.
+%En relación a los valores de los coeficientes de correlación, se 
+%puede ver que los mismos Genders en diferentes Languages tienen
+%valores muy altos. Sin embargo, también Genders diferentes en distintos
+%Languages tienen una fuerte correlación. Con base en lo anterior, se puede
+%deducir que existen sólo algunos atributos sobre los que
+%recae la representación del Gender de los autores.
+
+We use the Jaccard index to measure similarity between the
+100 features of the sum vector with the highes values.
+Tables \ref{table:men-vs-men}, \ref{table:women-vs-women} and \ref{table:women-vs-men} shows a better perspective with respect to the correlation measure. We can see
+that the pairs of most similar sets are: english with arab-speaking males, english with spanish-speaking males
+and  english with spanish speaking females. Conversely, 
+the least similar are between males and females
+from the pair of languages: spanish and arab, english and arab, spanish and english.
+%
+%
+%
+%Con respecto al Jaccard index para medir la similitud entre los conjuntos
+%de tamaño 100 de atributos entre los diferentes Languages y Genders se puede 
+%ver que los pares de conjuntos más similares son entre Males de los
+%Languages: inglés - arabe e inglés - español y entre Females de español - inglés. Por el contrario,
+%los conjuntos menos similares son entre Males y Females de los Languages:
+%español - árabe, inglés - árabe y español - inglés.
 
 % {'hair_spray', 'brassiere', 'stole', 'Blenheim_spaniel', 'Persian_cat', 'overskirt', 'miniskirt', 'ballplayer', 'velvet', 'lipstick', 'wig', 'bath_towel', 'Shih-Tzu', 'spatula', 'suit'}
 
 
 \begin{table}[]
 \centering
-\caption{Correlación e índice de Jaccard para hombres en los distintos Languages.}
+\caption{Correlation and Jaccard index from males of every language.}
 \label{table:men-vs-men}
 \begin{tabular}{|l|l|l|}
 \hline
-& \begin{tabular}[c]{@{}l@{}}Coeficiente de \\ correlación\end{tabular} & Índice de Jaccard \\ \hline
+& \begin{tabular}[c]{@{}l@{}}Correlation \\ coeficient\end{tabular} & Jaccard index \\ \hline
 Arab-Spanish              & 0.985                                                                 & 0.681          \\ \hline
 Arab-English               & 0.986                                                                 & 0.724          \\ \hline
 Spanish-English             & 0.996                                                                 & 0.739          \\ \hline
@@ -504,11 +532,11 @@ Spanish-English             & 0.996                                             
 
 \begin{table}[]
 \centering
-\caption{Correlación e índice de Jaccard para mujeres en los distintos Languages.}
+\caption{Correlation and Jaccard index from fesmales of every language.}
 \label{table:women-vs-women}
 \begin{tabular}{|l|l|l|}
 \hline
-& \begin{tabular}[c]{@{}l@{}}Coeficiente de \\ correlación\end{tabular} & Índice de Jaccard \\ \hline
+& \begin{tabular}[c]{@{}l@{}}Correlation \\ coeficient\end{tabular} & Jaccard index \\ \hline
 Arab-Spanish   & 0.973                      & 0.667          \\ \hline
 Arab-English    & 0.976                      & 0.653          \\ \hline
 Spanish-English  & 0.997                      & 0.802          \\ \hline
@@ -516,15 +544,14 @@ Spanish-English  & 0.997                      & 0.802          \\ \hline
 \end{table}
 
 \begin{table}[!htb]
-    \caption{Correlación (izquierda) e índice de Jaccard (derecha) entre hombres
-    y mujeres de los distintos Languages.}
+    \caption{Correlation (left) and Jaccard index (right) between males and females.}
     \label{table:women-vs-men}
     \begin{minipage}{.5\linewidth}
         \centering
-        % \caption{Correlación Hombres-Mujeres}
+        % \caption{Correlación Males-Females}
         \begin{tabular}{|l|l|l|l|}
         \hline
-        \diagbox{Hombres}{Mujeres} & Arab & Spanish & English \\ \hline
+        \diagbox{Males}{Females} & Arab & Spanish & English \\ \hline
         Arab   & 0.982 & 0.977   & 0.980  \\ \hline
         Spanish & 0.962 & 0.990   & 0.990  \\ \hline
         English  & 0.964 & 0.987   & 0.991  \\ \hline
@@ -532,11 +559,11 @@ Spanish-English  & 0.997                      & 0.802          \\ \hline
     \end{minipage}%
     \begin{minipage}{.5\linewidth}
         \centering
-        % \caption{Jaccard Hombres vs Mujeres}
+        % \caption{Jaccard Males vs Females}
         
         \begin{tabular}{|l|l|l|l|}
         \hline
-         \diagbox{Hombres}{Mujeres}        & Arab & Spanish & English \\ \hline
+         \diagbox{Males}{Females}        & Arab & Spanish & English \\ \hline
         Arab   & 0.626 & 0.626   & 0.613  \\ \hline
         Spanish & 0.563 & 0.681   & 0.667  \\ \hline
         English  & 0.550 & 0.587   & 0.626  \\ \hline
@@ -546,6 +573,9 @@ Spanish-English  & 0.997                      & 0.802          \\ \hline
 \begin{table}[]
 
 \end{table}
+
+To expand the sum-based analysis
+
 
 El otro análisis se realizó con una perspectiva 
 de selección de atributos, obteniendo la ganancia de información 
@@ -619,7 +649,7 @@ fue el masculino.
 %     \item Tablas de las combinaciones que se probaron.
 %     \item Selección de características.
 %     \item Histogramas de ``frecuencias''.
-%     \item Correlación entre los vectores de los hombres y mujeres
+%     \item Correlación entre los vectores de los Males y Females
 %     entre los Languages.
 % \end{itemize}
 
