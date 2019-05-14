@@ -1,7 +1,8 @@
+\RequirePackage{amsmath}
 \documentclass[runningheads]{llncs}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx}
-\usepackage{amsmath}
+% \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{diagbox}
@@ -17,26 +18,23 @@
 
 \begin{document}
 %
-\title{Cross-cultural image-based author profiling in Twitter}
+\title{Cross-cultural image-based author profiling\\ in Twitter}
 
 %\titlerunning{Abbreviated paper title}
 % If the paper title is too long for the running head, you can set
 % an abbreviated paper title here
 
-\author{First Author\inst{1}\orcidID{0000-1111-2222-3333} \and
-Second Author\inst{2,3}\orcidID{1111-2222-3333-4444} \and
-Third Author\inst{3}\orcidID{2222--3333-4444-5555}}
+\author{Ivan Feliciano \and
+Second Author \and
+Third Author}
 %
-\authorrunning{F. Author et al.}
+\authorrunning{I. Feliciano et al.}
 % First names are abbreviated in the running head.
 % If there are more than two authors, 'et al.' is used.
 %
-\institute{Princeton University, Princeton NJ 08544, USA \and
-Springer Heidelberg, Tiergartenstr. 17, 69121 Heidelberg, Germany
-\email{lncs@springer.com}\\
-\url{http://www.springer.com/gp/computer-science/lncs} \and
-ABC Institute, Rupert-Karls-University Heidelberg, Heidelberg, Germany\\
-\email{\{abc,lncs\}@uni-heidelberg.de}}
+\institute{Instituto Nacional de Astrofísica, Óptica y Electrónica\\
+\email{ivan.felavel@gmail.com}\\
+}
 
 \maketitle
 
@@ -70,20 +68,24 @@ for a gender identification from a multimodal standpoint
 where in addition to text, images as source of information
 are included.
 
-The proposals mentioned above have shown that it is possible to use information extracted from images to solve gender identification. However, they addressed the problem by using data from users of the same language, e.g. they employ shared images of English language registered users to train their models and test over a set of images from users of English language. Despite the good results, the information from users of some other languages is not always available. 
+The proposals mentioned above have shown that it is possible to use information extracted from images to solve gender identification. However, they addressed the problem by using data from users of the same language, e.g. they employ shared images of English language registered users to train their models and test over a set of images from users of English language. Despite the good results, 
+the information from users of some other languages is not always available.
+Starting from this, the inquisitiveness to know if shared images on social media are to a certain extent independent of the language of the users motivated us to do this research.
 
 In this work we present a cross-cultural approach where we show that individuals with similar demographic aspects even though from different dialects and cultures usually share likewise images.
 For instance, from the results of Section \ref{section:results},
 we can confirm some obvious and stereotypes assumptions remain
-between different languages. Men share more content related to sports and women share more images related to clothes and makeup.
+between different languages. For example, men share more content related to sports.
+% Men share more content related to sports and women share more images related to clothes and makeup.
 
 To meet our cross-cultural approach
-we employ the collection provided by the 
-the PAN 2018 AP task. This dataset is 
-grouped by user language, there are three
-languages; English, Spanish and Arab. Each
-group is composed of text and image tweets.
-We only focus on using the images. Through the extraction of semantic features of 
+% we employ the collection provided by the 
+% the PAN 2018 AP task. This dataset is 
+% grouped by user language, there are three
+% languages; English, Spanish and Arab. Each
+% group is composed of text and image tweets.
+% We only focus on using the images. Through the extraction of semantic features of 
+we employ images from Twitter. Through the extraction of semantic features of 
 the images shared by the authors, several models
 were trained and tested. Using a monolingual approach, some of these models
 were trained and tested using the data of users
@@ -91,13 +93,13 @@ of the same language. The rest of the models
 were trained adding the collections of the 
 other languages and evaluated with user data 
 whose language is not necessarily in the 
-training collections. The best model was achieved using as our training set the union of all 
-collections. 
+training collections. The best model was achieved using as our training set the union of all collections. 
 
-Our main contribution is the confirmation 
+Our main contribution is the confirmation
 that for the task of gender identification, 
-images from social media are independent
-of the user language. We show that we can improve the effectiveness of a model with a monolingual perspective by taking advantage of a larger dataset from another language. We also analyzed some high level features obtained from the images that helped to make gender prediction and are also useful among the different languages.
+% images from social media are independent
+the size of the data matters more than the
+language of the users. We show that we can improve the effectiveness of a model with a monolingual perspective by taking advantage of a larger dataset from another language. We also analyzed some high level features obtained from the images that helped to make gender prediction and are also useful among the different languages.
 
 \section{Related work}
 
@@ -119,7 +121,7 @@ gender identification from a multimodal perspective, where texts and images were
 given and they cover three languages: arab, english and spanish.
 The participants used different approaches to solve the problem,
 where the solutions that involved deep learning techniques were the most outstanding.
-With respect to image classification, in a very general way we can lump
+In a very general way, with respect to gender classification based only on images, we can lump
 together three approaches: based on face recognition, based on pre-trained models
 and based on basic image processing techniques as color histograms.
 
@@ -141,7 +143,7 @@ comprising objects and scenes in every image. Finally, the vector is the input t
 % objetos y escenas que puede contener la imagen. Como cada autor cuenta 
 % con diez tuits de imágenes, se obtiene un vector promedio para 
 % representar a cada usuario y éste es utilizado sobre otro modelo para 
-% clasificar entre dos Genders: masculino y Female. 
+% clasificar entre dos Genders: Male y Female. 
 % Los trabajos anteriores, sólo indican los resultados de la evaluación de los modelos de clasificación con un enfoque monolingüe. 
 % % , donde \cite{sierra_gonzales} adicionalmente usó ResNet50 \cite{7780459} para comparar resultados, obteniendo mejores resultados con la última.
 
@@ -171,7 +173,7 @@ comprising objects and scenes in every image. Finally, the vector is the input t
 % objetos y escenas que puede contener la imagen. Como cada autor cuenta 
 % con diez tuits de imágenes, se obtiene un vector promedio para 
 % representar a cada usuario y éste es utilizado sobre otro modelo para 
-% clasificar entre dos Genders: masculino y Female. 
+% clasificar entre dos Genders: Male y Female. 
 % Los trabajos anteriores, sólo indican los resultados de la evaluación de los modelos de clasificación con un enfoque monolingüe. Sin embargo, esta investigación tiene una perspectiva crosslingüe.
 
 % Ap-
@@ -190,28 +192,26 @@ comprising objects and scenes in every image. Finally, the vector is the input t
 To be able to show that the shared images are independent of the language
 of the authors, we proposed to train classifiers
 with different combinations of training data of user images 
-in the three languages. After training of the possible models, these
+in the three languages. After training all the possible models, they
 are evaluated with the test set for each language individually.
 For example, we can train a learning model using images from spanish-speaking
 and english-speaking users. Subsequently, we measure its performance
 using images from arab-speaking authors.
-
 Our approach comprises two parts; authors' representation and 
 evaluation schemes.
 
-\subsection{Representation of users}
+% \subsection{Representation of users}
 
 Generally speaking, we can assume that we possess $N$ images shared
 by every user. The representation of each image is extracted from 
-a pre-trained convolutional neural network. This model has as output a probability distribution
+a pre-trained convolutional neural network. The used model has as output a probability distribution
 over 1000 possible labels. These labels are objects and scenes contained
-in a picture. 
-
+in a picture.
 To get only one feature vector that represents each author, 
 we average the vectors of the $N$ images. The average vectors 
 are the ones used as inputs for the learning model. Figure \ref{fig:img_representation} shows the above description.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[scale=0.25]{img/features_extraction.png}
     \caption{Representation scheme of one author through the 
@@ -219,28 +219,27 @@ are the ones used as inputs for the learning model. Figure \ref{fig:img_represen
     \label{fig:img_representation}
 \end{figure}
 
-\subsection{Evaluation schemes}
+% \subsection{Evaluation schemes}
 
-We build one classifier for each subset of the set of the
-collections from user images in all different languages.
+For the part of the evaluation schemes, we build one classifier for each subset of the set of the collections from user images in all different languages.
 Namely, given a set $\mathbb{X} = \{\text{Arab}, 
 \text{Spanish}, \text{English}\}$, where each element
 from $\mathbb{X}$ is a collection of user representations
 of the respective language, the $i-th$ classifier was trained
 with a set $X_i \subseteq \mathbb{X}$ and $X_i \neq \varnothing$.
-After every possible classifier training, these are evaluated with a collection 
+After every possible classifier training, they are evaluated with a collection 
 $Y \in \mathbb{Y}$, where $\mathbb{Y}$ is defined similarly to
 $\mathbb{X}$ but with respect to the test sets.
-Figure \ref{fig:classifier} expresses an example of one classifier.
+% Figure \ref{fig:classifier} expresses an example of one classifier.
  
-\begin{figure}[!h]
-    \centering
-    \includegraphics[scale=0.3]{img/classifier_scheme.png}
-    \caption{Pipeline of a classifier trained with images of users 
-    from english, arab and spanish-speaking users and evaluated using
-    the test arab collection.}
-    \label{fig:classifier}
-\end{figure}
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[scale=0.3]{img/classifier_scheme.png}
+%     \caption{Pipeline of a classifier trained with images of users 
+%     from english, arab and spanish-speaking users and evaluated using
+%     the test arab collection.}
+%     \label{fig:classifier}
+% \end{figure}
 
 
 \section{Experimental setup}
@@ -262,14 +261,6 @@ Spanish, Arab) with ten images per author. The sets are balanced with respect
 to gender. Table \ref{table-datasets} describes the collections with regard
 number of users and languages.
 
-To generate the descriptors of the images we use is the VGG16 convolutional
-neural network based on ImageNet and we used as machine learning algorithm a support vector 
-machine (SVM) with a linear kernel for training and classification. The 
-baseline to compare our proposal are monolingual classifiers, i.e. 
-those classifiers trained and tested with images from users of the same language.
-The measured used to compare distinct classifiers is the accuracy, the proportion
-of samples correctly classified.
-
 
 \begin{table}[]
 \centering
@@ -280,9 +271,17 @@ of samples correctly classified.
          & Arab & Spanish & English & Total \\ \midrule
 Training & 1500 & 3000    & 3000    & 7500  \\ \midrule
 Test     & 1000 & 2200    & 1900    & 5100  \\\midrule
-Total    & 2500 & 4900    & 5200    & 12600 \\ \bottomrule
+Total    & 2500 & 5200    & 4900    & 12600 \\ \bottomrule
 \end{tabular}
 \end{table}
+
+To generate the descriptors of the images we use is the VGG16 convolutional
+neural network based on ImageNet and we used as machine learning algorithm a support vector 
+machine (SVM) with a linear kernel for training and classification. The 
+baseline to compare our proposal are monolingual classifiers, i.e. 
+those classifiers trained and tested with images from users of the same language.
+The metric to compare distinct classifiers performance is the accuracy, the proportion of samples correctly classified.
+
 % \begin{table}[]
 % \caption{Number of users for each language for training and test sets. There is the same number of women as there are for men.}\label{table-datasets}
 % \centering
@@ -319,18 +318,19 @@ Total    & 2500 & 4900    & 5200    & 12600 \\ \bottomrule
 
 \section{Results and discussion}\label{section:results}
 
-Table \ref{results_accuracy} reports the evaluation measure (accuracy) 
+Table \ref{results_accuracy} reports the evaluation measure 
 of every classifier. We grouped together
-three types of results: $\mathrm{I}$) monolingual classifiers,
-and our cross-cultural approach is divided in two $\mathrm{II}$) and
-$\mathrm{III}$), where where the first ones are evaluated using a language that was not used in training and the last ones are those where we add data from
-languages other than the one used in the evaluation.
-The results highlighted in bold indicate those classifiers where 
-each test language obtains its best value in the measure of evaluation.
-We can see that several classifiers achieved the same accuracy
-for the same language. The classifier that reaches the highest scores 
-for the three languages is the one where its training set is $\mathbb{X}$,
-where all the collections are used.
+four types of results: $\mathrm{I}$) monolingual classifiers,
+and our cross-cultural approach is splitted in three $\mathrm{II}$) 
+$\mathrm{III}$) and $\mathrm{IV}$), where the first ones are evaluated using 
+a language that was not used in the training and the last ones are 
+those where we add data from languages other than the one used in 
+the evaluation. The results highlighted in bold indicate those 
+classifiers where each test language obtains its best value in the 
+measure of evaluation. We can see that several classifiers achieved 
+the same accuracy for the same language. The classifier that reaches
+the highest scores for the three languages is the one in $\mathrm{IV}$ where its 
+training set is $X_i = \mathbb{X}$, i.e., all the collections are used.
 The worst results are those where images from arab-speaking users
 are employed to classify english and spanish-speaking users. We 
 can assume that it should be because the size of the training data,
@@ -339,20 +339,7 @@ From this results we are able to make the assumption that
 add information regardless of the user's language produces better
 classifiers.
 
-% El Cuadro \ref{results_accuracy} muestra un ligero
-% incremento utilizando las colecciones de los tres Languages
-% con respecto a usar la colección de
-% cada Language por separado.
-% El aumento más notable en exactitud corresponde al
-% conjunto de imágenes de usuarios en árabe. 
-% Podemos suponer
-% que esto se debe al aumento de vectores en el conjunto de 
-% entrenamiento.
-
-% Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-% \usepackage{multirow}
-\begin{table}[]
+\begin{table}[ht]
 \centering
 \caption{Accuracy for all classifiers.}
 \label{results_accuracy}
@@ -376,119 +363,67 @@ classifiers.
                                  &                           & Arab                    & 0.69                         \\
                                  & Spanish English           & English                 & \textbf{0.70}                \\
                                  &                           & Spanish                 & \textbf{0.68}                \\
-                                 &                           & Arab                    & 0.70                         \\
-                                 & Arab Spanish English      & English                 & \textbf{0.70}                \\
+                                 &                           & Arab                    & 0.70                         \\ \midrule
+\multirow{3}{*}{$\mathrm{IV}$)} & Arab Spanish English      & English                 & \textbf{0.70}                \\
                                  &                           & Spanish                 & \textbf{0.68}                \\
                                  &                           & Arab                    & \textbf{0.71}                \\ \bottomrule
 \end{tabular}
 \end{table}
-% \begin{table}[]
-% \centering
-% \caption{Exactitud obtenida por las pruebas monolimgües y crosslingües.}
-% \label{results_accuracy}
-% \begin{tabular}{|l|l|l|}
-% \hline
-% $X_i$ & $Y$ & Accuracy \\ \hline
-% Arab                & Arab            & 0.68      \\ \hline
-% Spanish              & Spanish          & 0.67      \\ \hline
-% English               & English           & \textbf{0.70}      \\ \hline
-% Arab                & English           & 0.63      \\ \cline{2-3} 
-%                      & Spanish          & 0.63      \\ \hline
-% Spanish              & English           & 0.67      \\ \cline{2-3} 
-%                      & Arab            & 0.70      \\ \hline
-% English               & Spanish          & 0.67      \\ \cline{2-3} 
-%                      & Arab            & 0.69      \\ \hline
-% Arab Spanish        & English           & 0.68      \\ \cline{2-3} 
-%                      & Spanish          & 0.67      \\ \cline{2-3} 
-%                      & Arab            & \textbf{0.71}      \\ \hline
-% Arab English         & English           & 0.68      \\ \cline{2-3} 
-%                      & Spanish          & 0.66      \\ \cline{2-3} 
-%                      & Arab            & 0.69      \\ \hline
-% Spanish English       & English           & \textbf{0.70}      \\ \cline{2-3} 
-%                      & Spanish          & \textbf{0.68}      \\ \cline{2-3} 
-%                      & Arab            & 0.70      \\ \hline
-% Arab Spanish English & English           & \textbf{0.70}      \\ \cline{2-3} 
-%                      & Spanish          & \textbf{0.68}      \\ \cline{2-3} 
-%                      & Arab            & \textbf{0.71}      \\ \hline
-% \end{tabular}
-% \end{table}
-
 \subsection{Content extracted from images}
-
-
-%  Sobre análisis: muy bien lo que has incluido, como materia prima, pero
-% no como presentación final. hay que reunirnos a definir qué poner
-% exactamente, pero lo que sí veo que hace falta es explicar el objetivo
-% atrás de cada análisis. Por ejemplo, yo veo ue podríamos tener dos
-% claros objetivos: i) mostrar en cada Language qué ayuda a diferenciar
-% entre Males y Females, ii) tratar de mostrar las SEMEJANZAS y
-% diferencias por Language. habrá que enfatizar más las semejanzas pues esas
-% son el corazón de nuestra idea, sin semejanzas lo crosslingue no
-% serviría. Pero claro, viendo que el mejor resultado lo tenemos cuando
-% usamos también datos de propio lenguaje en training, entonces hay que
-% mostrar también las diferencias.
-
 We now analyze the features extracted from the images. These
 are based in the image content, i.e. objects and scenes that
-are predicted by the pre-trained model VGG16.
+are predicted by the VGG16 pre-trained model.
 The main objectives of this analysis are: i) show in each language the attributes that helps distinguish between men and women, and ii) show the similarities
 and differences among the content shared in the distinct languages.
 
-First, we get a sum vector for each gender in every language.
+First, we get a normalized sum vector for each gender in every language.
 %The sum vectors are just the sum of feature vectors for 
 %every user, grouped by gender. 
 In a very rough way
 this vector is  analogous to a vector of frequencies.
 Attributes with higher values indicate more common labels.
-Figure \ref{img-vgg16-freqs} shows word clouds with
-the 50 attributes with the highest sum values for every gender and language.
-
-
-% Como la SVM no ofrece una explicación sobre la clasificación,
-% realizamos un análisis de los atributos en los vectores que representan 
-% a los usuarios.
-% Este análisis se hizo con los atributos 
-% frecuentes entre los Genders e Languages y obteniendo aquellos
-% con mayor ganancia de información.
-\begin{figure}[h]
-\centering
-\subfloat[Gender: Female. Language: Arab.]{\includegraphics[scale=0.2]{img/AR_F_wordcloud.png}}
-\qquad
-\subfloat[Gender: Masculino. Language: Arab.]{\includegraphics[scale=0.2]{img/AR_M_wordcloud.png}}\\
-\subfloat[Gender: Female. Language: Spanish.]{\includegraphics[scale=0.2]{img/ES_F_wordcloud.png}}\qquad
-\subfloat[Gender: Masculino. Language: Spanish.]{\includegraphics[scale=0.2]{img/ES_M_wordcloud.png}}\\ 
-\subfloat[Gender: Female. Language: English.]{\includegraphics[scale=0.2]{img/EN_F_wordcloud.png}}\qquad
-\subfloat[Gender: Masculino. Language: English.]{\includegraphics[scale=0.2]{img/EN_M_wordcloud.png}}
-\caption{Word clouds for the 50 highest value features of the sum vectors.}
-\label{img-vgg16-freqs}
-\end{figure}
+Figure \ref{img-vgg16-freqs} shows those attributes that are
+in the intersection of the top 50 of the most frequent labels for every
+language and gender.
+% the 50 attributes with the highest sum values for every gender and language.
 
 
 Figure \ref{img-vgg16-freqs} indicates that some attributes
-are common between each demographic group. For instance
-some of these features are: \texttt{web site}, \texttt{book jacket}, \texttt{envelope}, \texttt{comic book} y \texttt{menu}. Contrary to the similarities there are 
+are common between each demographic group. For instance,
+some of these features are: web site, book jacket, envelope, comic book and menu. Contrary to the similarities, there are 
 some features that are not present in the opposite 
-gender in each language. For example, for the english
-language, words like 
-\texttt{ballplayer} and \texttt{basketball} 
-are in the men's cloud and \texttt{miniskirt} and
-\texttt{pajama} are in the women's set. 
-The intersection of the generated sets
-for men of all the languages are the next terms:
-\texttt{rugby ball}, \texttt{ballplayer}, \texttt{basketball}, and \texttt{soccer ball}.
-On the other hand the intersection of women image labels
-are: \texttt{stole}, \texttt{gown}, \texttt{miniskirt}, \texttt{fur coat}, \texttt{brassiere} and \texttt{pajama}.
+gender in each language.
+For example, the difference between the set of most common females features and the set of most common male features is given by:
+sunglasses,
+pajama, fur coat, theater curtain, cloak, miniskirt, brassiere, hair spray, Band Aid, stole and gown. On the other hand, only men have: 
+Windsor tie,
+soccer ball, ballplayer, rugby ball, scoreboard, shoe shop, military uniform and basketball.
 
-Futhermore, we use every possible pair of the sum vectors
-to compute correlation coeffient and Jaccard index between 
+% For example, for the english
+% language, words like 
+% ballplayer} and basketball} 
+% are in the word cloud of men and miniskirt} and
+% pajama} are in the set of women. 
+% The intersection of the generated sets
+% for men of all the languages are the next terms:
+% rugby ball, ballplayer, basketball, and soccer ball}.
+% On the other hand the intersection of women image labels
+% are: stole, gown, miniskirt, fur coat, brassiere} and pajama}.
+
+\begin{figure}[h]
+\centering
+\subfloat[Females most frequent attributes. ]{\includegraphics[width=6cm,height=7cm]{img/females_most_freq.png}}
+\subfloat[Males most frequent attributes.]{\includegraphics[width=6cm,height=7cm]{img/males_most_freq.png}}
+\caption{Intersection of the 50 highest value features of the normalized sum vectors for every language.}
+\label{img-vgg16-freqs}
+\end{figure}
+
+Furthermore, we use every possible pair of the normalized sum vectors
+to compute the Jaccard index between 
 them. We extend the number of 50 attributes to 100 for
-each sum vector. Tables \ref{table:men-vs-men}, \ref{table:women-vs-women}, \ref{table:women-vs-men} show
+each normalized sum vector. We use the Jaccard index to measure similarity between the
+100 features of the sum vector with the highest values. Tables \ref{table:women-vs-women-and-men-vs-men} and \ref{table:women-vs-men} show
 the results.
-with respect to correlation we can see that same genders of 
-different languages had very high values. However, 
-a similar result is obtained between men and women.
-
-
 %Los Cuadros \ref{table:men-vs-men}, \ref{table:women-vs-women}, \ref{table:women-vs-men} muestran los resultados.
 %En relación a los valores de los coeficientes de correlación, se 
 %puede ver que los mismos Genders en diferentes Languages tienen
@@ -497,13 +432,73 @@ a similar result is obtained between men and women.
 %deducir que existen sólo algunos atributos sobre los que
 %recae la representación del Gender de los autores.
 
-We use the Jaccard index to measure similarity between the
-100 features of the sum vector with the highes values.
-Tables \ref{table:men-vs-men}, \ref{table:women-vs-women} and \ref{table:women-vs-men} shows a better perspective with respect to the correlation measure. We can see
+% We use the Jaccard index to measure similarity between the
+% 100 features of the sum vector with the highest values.
+% Tables \ref{table:men-vs-men}, \ref{table:women-vs-women} and \ref{table:women-vs-men} shows a better perspective with respect to the correlation measure. 
+
+
+\begin{table}[!htb]
+    \caption{Jaccard index between every pair of males (table on the left) and between every pair of females (table on the right).}
+    \label{table:women-vs-women-and-men-vs-men}
+    \begin{minipage}{.5\linewidth}
+        \centering
+        \begin{tabular}{ll}
+        \hline
+                        & Jaccard index \\ \hline
+        Arab-Spanish    & 0.681         \\
+        Arab-English    & 0.724         \\
+        Spanish-English & 0.739         \\ \hline
+        \end{tabular}
+    \end{minipage}%
+    \begin{minipage}{.5\linewidth}
+        \centering
+        
+        \begin{tabular}{ll}
+        \hline
+                        & Jaccard index \\ \hline
+        Arab-Spanish    & 0.667         \\
+        Arab-English    & 0.653         \\
+        Spanish-English & 0.802         \\ \hline
+        \end{tabular}
+    \end{minipage} 
+\end{table}
+
+
+\begin{table}[!htb]
+    \centering
+    \caption{Jaccard index (right) between males and females.}
+    \label{table:women-vs-men}
+    \begin{tabular}{@{}llll@{}}
+    \toprule
+    \diagbox{Males}{Females} & Arab  & Spanish & English \\ \midrule
+    Arab                     & 0.626 & 0.626   & 0.613   \\
+    Spanish                  & 0.563 & 0.681   & 0.667   \\
+    English                  & 0.550 & 0.587   & 0.626   \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+We can see
 that the pairs of most similar sets are: english with arab-speaking males, english with spanish-speaking males
 and  english with spanish speaking females. Conversely, 
 the least similar are between males and females
-from the pair of languages: spanish and arab, english and arab, spanish and english.
+from the pair of languages: spanish and arab, english and arab, spanish and english. 
+We can also see from Table \ref{table:women-vs-women-and-men-vs-men} that there is more dissimilarity with respect to arab users. We can assume that it is due to a wider cultural gap than among the english and spanish-speaking users. Motivated by knowing what kind of things those
+makes those users uniques, we compute the difference between the
+sum vector of the arab users and the average sum vector of spanish and
+english users. Figure  \ref{img-arab-comparison} shows those attributes
+not to close to zero, where attributes with negative values are less 
+prevalent in images of arab-speaking users and those positives are
+more common.
+
+\begin{figure}[h]
+\centering
+\subfloat[Arab females comparison with other speaking user languages. ]{\includegraphics[scale=0.23]{img/ar_females_vs_all.png}}
+\subfloat[Arab males comparison with other speaking user languages.]{\includegraphics[scale=0.23]{img/ar_males_vs_all.png}}
+\caption{Difference between arab-speaking users and the others.}
+\label{img-arab-comparison}
+\end{figure}
+
+
 %
 %
 %
@@ -517,131 +512,164 @@ from the pair of languages: spanish and arab, english and arab, spanish and engl
 % {'hair_spray', 'brassiere', 'stole', 'Blenheim_spaniel', 'Persian_cat', 'overskirt', 'miniskirt', 'ballplayer', 'velvet', 'lipstick', 'wig', 'bath_towel', 'Shih-Tzu', 'spatula', 'suit'}
 
 
-\begin{table}[]
-\centering
-\caption{Correlation and Jaccard index from males of every language.}
-\label{table:men-vs-men}
-\begin{tabular}{|l|l|l|}
-\hline
-& \begin{tabular}[c]{@{}l@{}}Correlation \\ coeficient\end{tabular} & Jaccard index \\ \hline
-Arab-Spanish              & 0.985                                                                 & 0.681          \\ \hline
-Arab-English               & 0.986                                                                 & 0.724          \\ \hline
-Spanish-English             & 0.996                                                                 & 0.739          \\ \hline
-\end{tabular}
-\end{table}
+% \begin{table}[]
+% \centering
+% \caption{Correlation and Jaccard index from males of every language.}
+% \label{table:men-vs-men}
+% \begin{tabular}{@{}lll@{}}
+% \toprule
+%                 & \begin{tabular}[c]{@{}l@{}}Correlation \\ coefficient\end{tabular} & Jaccard index \\ \midrule
+% Arab-Spanish    & 0.985                                                             & 0.681         \\
+% Arab-English    & 0.986                                                             & 0.724         \\
+% Spanish-English & 0.996                                                             & 0.739         \\ \bottomrule
+% \end{tabular}
+% \end{table}
+% \begin{table}[]
+% \centering
+% \caption{Correlation and Jaccard index from males of every language.}
+% \label{table:men-vs-men}
+% \begin{tabular}{|l|l|l|}
+% \hline
+% & \begin{tabular}[c]{@{}l@{}}Correlation \\ coeficient\end{tabular} & Jaccard index \\ \hline
+% Arab-Spanish              & 0.985                                                                 & 0.681          \\ \hline
+% Arab-English               & 0.986                                                                 & 0.724          \\ \hline
+% Spanish-English             & 0.996                                                                 & 0.739          \\ \hline
+% \end{tabular}
+% \end{table}
 
-\begin{table}[]
-\centering
-\caption{Correlation and Jaccard index from fesmales of every language.}
-\label{table:women-vs-women}
-\begin{tabular}{|l|l|l|}
-\hline
-& \begin{tabular}[c]{@{}l@{}}Correlation \\ coeficient\end{tabular} & Jaccard index \\ \hline
-Arab-Spanish   & 0.973                      & 0.667          \\ \hline
-Arab-English    & 0.976                      & 0.653          \\ \hline
-Spanish-English  & 0.997                      & 0.802          \\ \hline
-\end{tabular}
-\end{table}
 
-\begin{table}[!htb]
-    \caption{Correlation (left) and Jaccard index (right) between males and females.}
-    \label{table:women-vs-men}
-    \begin{minipage}{.5\linewidth}
-        \centering
-        % \caption{Correlación Males-Females}
-        \begin{tabular}{|l|l|l|l|}
-        \hline
-        \diagbox{Males}{Females} & Arab & Spanish & English \\ \hline
-        Arab   & 0.982 & 0.977   & 0.980  \\ \hline
-        Spanish & 0.962 & 0.990   & 0.990  \\ \hline
-        English  & 0.964 & 0.987   & 0.991  \\ \hline
-        \end{tabular}
-    \end{minipage}%
-    \begin{minipage}{.5\linewidth}
-        \centering
-        % \caption{Jaccard Males vs Females}
+% \begin{table}[]
+% \centering
+% \caption{Correlation and Jaccard index from females of every language.}
+% \label{table:women-vs-women}
+% \begin{tabular}{@{}lll@{}}
+% \toprule
+%                 & \begin{tabular}[c]{@{}l@{}}Correlation \\ coefficient\end{tabular} & Jaccard index \\ \midrule
+% Arab-Spanish    & 0.973                                                             & 0.667         \\
+% Arab-English    & 0.976                                                             & 0.653         \\
+% Spanish-English & 0.997                                                             & 0.802         \\ \bottomrule
+% \end{tabular}
+% \end{table}
+
+% \begin{table}[]
+% \centering
+% \caption{Correlation and Jaccard index from fesmales of every language.}
+% \label{table:women-vs-women}
+% \begin{tabular}{|l|l|l|}
+% \hline
+% & \begin{tabular}[c]{@{}l@{}}Correlation \\ coeficient\end{tabular} & Jaccard index \\ \hline
+% Arab-Spanish   & 0.973                      & 0.667          \\ \hline
+% Arab-English    & 0.976                      & 0.653          \\ \hline
+% Spanish-English  & 0.997                      & 0.802          \\ \hline
+% \end{tabular}
+% \end{table}
+
+% \begin{table}[!htb]
+%     \caption{Correlation (left) and Jaccard index (right) between males and females.}
+%     \label{table:women-vs-men}
+%     \begin{minipage}{.5\linewidth}
+%         \centering
+%         \begin{tabular}{@{}llll@{}}
+%         \toprule
+%         \diagbox{Males}{Females} & Arab  & Spanish & English \\ \midrule
+%         Arab                     & 0.982 & 0.977   & 0.980   \\
+%         Spanish                  & 0.962 & 0.990   & 0.990   \\
+%         English                  & 0.964 & 0.987   & 0.991   \\ \bottomrule
+%         \end{tabular}
+%     \end{minipage}%
+%     \begin{minipage}{.5\linewidth}
+%         \centering
         
-        \begin{tabular}{|l|l|l|l|}
-        \hline
-         \diagbox{Males}{Females}        & Arab & Spanish & English \\ \hline
-        Arab   & 0.626 & 0.626   & 0.613  \\ \hline
-        Spanish & 0.563 & 0.681   & 0.667  \\ \hline
-        English  & 0.550 & 0.587   & 0.626  \\ \hline
-\end{tabular}
-    \end{minipage} 
-\end{table}
-\begin{table}[]
-
-\end{table}
-
-To expand the sum-based analysis
-
-
-El otro análisis se realizó con una perspectiva 
-de selección de atributos, obteniendo la ganancia de información 
-de los atributos en cada Language. En la Figura \ref{img-gi} se muestran
-diagramas con los 25 atributos con mayor ganancia de información para cada par de 
-Languages. La intersección de los 25 atributos para los tres conjuntos de Languages 
-son cuatro: \texttt{brassiere}, \texttt{lipstick}, \texttt{velvet} y 
-\texttt{bath towel}. A partir de estas cuatro características importantes
-se realizó un análisis de fotografías cuyos valores sobre esos atributos
-fueron altos. De las Figuras \ref{fig:towel}, \ref{fig:brassiere}, 
-\ref{fig:lipstick}, \ref{fig:velvet} se puede ver las imágenes compartidas
-y el resultado de los modelos de identificacióń de Gender, el cual fue el Gender
-Female utilizando todos lo modelos, excepto en una fotografía en la que dos modelos,
-el entrenado con inglés y árabe y el monolingüe inglés, identificaron al autor
-como masculino.
-
-Al aumentar la lista a las 100 características con mayor ganancia de información
-se consigue una intersección mayor entre los tres Languages. La intersección
-de atributos para 100 características es: \texttt{hair spray}, \texttt{brassiere}, \texttt{stole}, \texttt{Blenheim spaniel}, \texttt{Persian cat}, \texttt{overskirt}, \texttt{miniskirt}, \texttt{ballplayer}, \texttt{velvet}, \texttt{lipstick}, \texttt{wig}, \texttt{bath towel}, \texttt{Shih Tzu}, \texttt{spatula} y \texttt{suit}.
-
-Se realizó el mismo experimento de obtener imágenes que tienen una alta 
-probabilidad de contener la característica \texttt{ballplayer}, para
-observar a qué Gender permitía distinguir. En la Figura \ref{fig:ballplayer}
-se muestran los resultados para los diferentes Languages, el Gender identificado
-fue el masculino.
-
-
-\begin{figure}[h]
-\centering
-\subfloat{\includegraphics[scale=0.2]{img/en_es_gi.png}}
-\subfloat{\includegraphics[scale=0.2]{img/en_ar_gi.png}}\\
-\subfloat{\includegraphics[scale=0.2]{img/es_ar_gi.png}}   
-\caption{Intersección de los 25 atributos con mayor ganancia de información.}
-\label{img-gi}
-\end{figure}
+%         \begin{tabular}{@{}llll@{}}
+%         \toprule
+%         \diagbox{Males}{Females} & Arab  & Spanish & English \\ \midrule
+%         Arab                     & 0.626 & 0.626   & 0.613   \\
+%         Spanish                  & 0.563 & 0.681   & 0.667   \\
+%         English                  & 0.550 & 0.587   & 0.626   \\ \bottomrule
+%         \end{tabular}
+%     \end{minipage} 
+% \end{table}
 
 
 
-\begin{figure}
+
+To expand the sum-based analysis we also try a feature selection
+technique to get those attributes that help in the distinction of 
+gender in each language. We compute for each language collection the 
+information gain for every attribute. 
+% Figure \ref{img-gi} indicates, through Venn diagrams, the 25 attributes (for viewing reasons) with greater information gain for every pair of languages. 
+% Further, t
+The terms that comprise the intersection of the three sets of 100 features with higher information gain are: hair spray, brassiere, stole, blenheim spaniel, persian cat, over skirt, miniskirt, ballplayer, velvet, lipstick, wig, bath towel, shih tzu, spatula and suit.
+
+For a better visualization of the content shared by users we 
+choose two attributes, bath towel and ballplayer and select some of the images from different users. They are displayed in
+Figures \ref{fig:towel} and \ref{fig:ballplayer}.
+
+% El otro análisis se realizó con una perspectiva 
+% de selección de atributos, obteniendo la ganancia de información 
+% de los atributos en cada Language. En la Figura \ref{img-gi} se muestran diagramas con los 25 atributos con mayor ganancia de información para cada par de Languages. 
+% La intersección de los 25 atributos para los tres conjuntos de Languages 
+% son cuatro: brassiere}, lipstick}, velvet} y 
+% bath towel}. A partir de estas cuatro características importantes
+% se realizó un análisis de fotografías cuyos valores sobre esos atributos
+% fueron altos. De las Figuras \ref{fig:towel}, \ref{fig:brassiere}, 
+% \ref{fig:lipstick}, \ref{fig:velvet} se puede ver las imágenes compartidas
+% y el resultado de los modelos de identificacióń de Gender, el cual fue el Gender
+% Female utilizando todos lo modelos, excepto en una fotografía en la que dos modelos,
+% el entrenado con inglés y árabe y el monolingüe inglés, identificaron al autor
+% como Male.
+
+% Al aumentar la lista a las 100 características con mayor ganancia de información
+% se consigue una intersección mayor entre los tres Languages. La intersección
+% de atributos para 100 características es: hair spray}, brassiere}, stole}, Blenheim spaniel}, Persian cat}, overskirt}, miniskirt}, ballplayer}, velvet}, lipstick}, wig}, bath towel}, Shih Tzu}, spatula} y suit}.
+
+% Se realizó el mismo experimento de obtener imágenes que tienen una alta 
+% probabilidad de contener la característica ballplayer}, para
+% observar a qué Gender permitía distinguir. En la Figura \ref{fig:ballplayer}
+% se muestran los resultados para los diferentes Languages, el Gender identificado
+% fue el Male.
+
+
+% \begin{figure}[ht]
+% \centering
+% \subfloat[English $\cap$ Spanish]{\includegraphics[scale=0.24]{img/en_es_gi.png}}
+% \subfloat[English $\cap$ Arab]{\includegraphics[scale=0.24]{img/en_ar_gi.png}}\\
+% \subfloat[Spanish $\cap$ Arab]{\includegraphics[scale=0.24]{img/es_ar_gi.png}}   
+% \caption{Venn diagrams for the 25 attributes with greater information
+% gain.}
+% \label{img-gi}
+% \end{figure}
+
+
+
+\begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.37]{img/best_gi/bath_towel_gi.png}
-    \caption{Bath towel}
+    \caption{Bath towel.}
     \label{fig:towel}
 \end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.37]{img/best_gi/brassiere_gi.png}
-    \caption{Bra}
-    \label{fig:brassiere}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.37]{img/best_gi/lipstick_gi.png}
-    \caption{Lipstick}
-    \label{fig:lipstick}
-\end{figure}
-\begin{figure}
-    \centering
-    \includegraphics[scale=0.37]{img/best_gi/velvet_gi.png}
-    \caption{Velvet}
-    \label{fig:velvet}
-\end{figure}
-\begin{figure}
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[scale=0.37]{img/best_gi/brassiere_gi.png}
+%     \caption{Brassiere.}
+%     \label{fig:brassiere}
+% \end{figure}
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[scale=0.37]{img/best_gi/lipstick_gi.png}
+%     \caption{Lipstick.}
+%     \label{fig:lipstick}
+% \end{figure}
+% \begin{figure}[ht]
+%     \centering
+%     \includegraphics[scale=0.37]{img/best_gi/velvet_gi.png}
+%     \caption{Velvet.}
+%     \label{fig:velvet}
+% \end{figure}
+\begin{figure}[!ht]
     \centering
     \includegraphics[scale=0.37]{img/best_gi/ball_player_gi.png}
-    \caption{Ballplayer}
+    \caption{Ballplayer.}
     \label{fig:ballplayer}
 \end{figure}
 % \begin{itemize}
@@ -654,34 +682,39 @@ fue el masculino.
 % \end{itemize}
 
 \newpage
-\section{Conclusiones y trabajo futuro}
-En este trabajo se propuso un esquema crosslingüe para el perfilado de autores
-usando las imágenes compartidas por usuarios en tres Languages. La idea central
-es unir las colecciones de varios Languages para probar si esto mejora el 
-desempeño para identificar el Gender de un usuario de un Language en específico.
-Llevamos a cabo los experimentos utilizando las colecciones de imágenes
-provistas en la tarea de perfilado de autores
-del PAN 2018. A partir de los resultados obtenidos, se puede ver un 
-ligero incremento en la exactitud utilizando todas las colecciones para
-entrenar un modelo y probarlo con un Language por separado.
-Además de esto, a través de un análisis de las representaciones
-de las imágenes usando atributos semánticos se pudo observar que hay 
-atributos importantes para distinguir las clases que coinciden en 
-los tres Languages. Sin embargo, a pesar de que el desempeño obtenido es bueno,
-está por debajo del que obtuvieron los autores en \cite{takahashi_tahara_nagatan_miura_taniguchi_ohkuma} que obtuvo
-un promedio de 0.7872, el promedio de nuestros mejores clasificadores fue 
-de 0.6966. Una posible causa es la limitación de nuestra representación
-de cada autor.
-\begin{itemize}
-    \item ¿El Language importa? 
-    \item ¿Comparten lo mismo los usuarios del Gender $X$ en el Language
-    $Y$ y los usuarios del Gender $X$ en el Language $\hat{Y}$.
-    \item ¿Es suficiente el vocabulario con el que cuenta imagenet
-    (1000 objetos y escenarios)?
-    \item Extender el trabajo usando el enfoque no supervisado.
-    \item Vocabulario abierto.
-    \item Agrupamiento dentro de cada Gender.
-\end{itemize}
+\section{Conclusions and future work}
+In this paper, we proposed a cross-cultural image-based approach for gender prediction in social media.
+This scheme was evaluated over a collection of Twitter images
+from users of three different languages. The results 
+have proven that the content of the images 
+among the users is independent of the user language,
+i.e. males from different languages
+tend to share the same type of images between different languages, same happens with female users. This work shows that cultural and language barriers have been overcome among users of social networks.
+A direction of future work is to try to achieve state of the art results from text or other image based approaches. Some of the proposals for the future is to improve authors representations
+using more abstract features or put the one thousand labels into higher level batches of categories.
+
+
+% A partir de los resultados obtenidos, se puede ver un 
+% ligero incremento en la exactitud utilizando todas las colecciones para
+% entrenar un modelo y probarlo con un Language por separado.
+% Además de esto, a través de un análisis de las representaciones
+% de las imágenes usando atributos semánticos se pudo observar que hay 
+% atributos importantes para distinguir las clases que coinciden en 
+% los tres Languages. Sin embargo, a pesar de que el desempeño obtenido es bueno,
+% está por debajo del que obtuvieron los autores en \cite{takahashi_tahara_nagatan_miura_taniguchi_ohkuma} que obtuvo
+% un promedio de 0.7872, el promedio de nuestros mejores clasificadores fue 
+% de 0.6966. Una posible causa es la limitación de nuestra representación
+% de cada autor.
+% \begin{itemize}
+%     \item ¿El Language importa? 
+%     \item ¿Comparten lo mismo los usuarios del Gender $X$ en el Language
+%     $Y$ y los usuarios del Gender $X$ en el Language $\hat{Y}$.
+%     \item ¿Es suficiente el vocabulario con el que cuenta imagenet
+%     (1000 objetos y escenarios)?
+%     \item Extender el trabajo usando el enfoque no supervisado.
+%     \item Vocabulario abierto.
+%     \item Agrupamiento dentro de cada Gender.
+% \end{itemize}
 
 \bibliographystyle{splncs04}
 \bibliography{references}
